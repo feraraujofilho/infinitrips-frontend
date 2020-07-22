@@ -9,8 +9,9 @@ import "./app/themes/style.scss"
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { CssBaseline } from '@material-ui/core';
 
+
 const client = new ApolloClient({
-	uri: 'http://localhost:4000/graphql',
+	uri: `${process.env.REACT_APP_BACKEND_URL}/graphql`,
 	cache: new InMemoryCache()
 });
 

@@ -68,7 +68,7 @@ const SearchBox: FC<SearchBoxProps> = ({ searchInfo }) => {
 		const { origin, destination1, destination2, destination3, destination4, nights } = formData;
 
 		axios
-			.post('http://localhost:4000/flights', {
+			.post(`${process.env.REACT_APP_BACKEND_URL}/flights`, {
 				origin: origin,
 				destination1: destination1,
 				destination2: destination2,
