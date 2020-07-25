@@ -4,5 +4,12 @@ export default makeStyles({
         width: "80%",
         margin: "auto",
         textAlign: "center"
+    },
+    elementCard: {
+        padding: "5px",
+    },
+    cardTable: {
+        maxWidth: "800px",
+        margin: "auto"
     }
 })

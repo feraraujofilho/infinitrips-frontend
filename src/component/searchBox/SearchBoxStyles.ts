@@ -13,7 +13,7 @@ export default makeStyles({
         marginBottom: "30px",
         border: "#4BA0B4 solid",
     },
-    actions: {
+    plusButton: {
         display: "flex",
         justifyContent: "center",
         '& svg': {
@@ -23,7 +23,9 @@ export default makeStyles({
     originAndNights: {
         display: "flex",
         marginBottom: "20px",
-        alignItems: "center"
+        '@media only screen and (min-width: 960px)': {
+            paddingRight: "55px"
+        },
     },
     submitButton: {
         marginTop: "10px",
@@ -32,5 +34,20 @@ export default makeStyles({
         '&:hover': {
             backgroundColor: "rgba(75, 160, 180, 0.8)",
         }
+    },
+    textLink: {
+        textDecoration: "none",
+        color: "#4BA0B4",
+        '& p': {
+            marginLeft: "10px"
+        }
+    },
+    actions: {
+        marginTop: "15px",
+        display: "flex",
+        alignItems: "center"
+    },
+    citiesAndDuration: {
+        alignItems: "baseline"
     }
 })

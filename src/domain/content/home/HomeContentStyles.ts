@@ -11,11 +11,14 @@ export default makeStyles({
 
     },
     header: {
-        height: "100vh",
+        minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
         textAlign: "center"
+    },
+    pageHeadings: {
+        maxWidth: "80%"
     }
 })

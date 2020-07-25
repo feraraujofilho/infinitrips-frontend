@@ -7,7 +7,8 @@ import AppRouter from './app/routing/AppRouter';
 import "./app/themes/style.scss"
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import theme from './app/themes/baseMuiTheme';
 
 
 const client = new ApolloClient({
@@ -15,12 +16,17 @@ const client = new ApolloClient({
 	cache: new InMemoryCache()
 });
 
+
 ReactDOM.render(
 	<ApolloProvider client={client}>
-		<React.StrictMode>
-			<CssBaseline />
-			<AppRouter />
-		</React.StrictMode>
+		<ThemeProvider theme={theme}>
+			<React.StrictMode>
+				<CssBaseline />
+				<AppRouter />
+			</React.StrictMode>
+		</ThemeProvider>
+
+
 	</ApolloProvider>,
 	document.getElementById('root')
 );
