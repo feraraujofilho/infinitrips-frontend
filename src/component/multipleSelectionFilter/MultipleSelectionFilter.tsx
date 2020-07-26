@@ -23,7 +23,6 @@ const MultipleSelectionFilter: FC<MultipleSelectionFilterProps> = ({ options, va
         onChange={handleChange}
         input={<Input />}
         renderValue={(selected: any) => selected.join(', ')}
-      /* MenuProps={MenuProps} */
       >
         {options.map((option) => (
           <MenuItem key={option} value={option}>

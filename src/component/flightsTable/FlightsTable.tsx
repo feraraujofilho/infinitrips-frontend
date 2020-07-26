@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, useEffect } from 'react';
 import { FlightsTableProps } from './FlightsTableProps';
 import useStyles from './FlightsTableStyles';
 import useUrlSearchParams from '../../app/hooks/useUrlSearchParams';
@@ -9,7 +9,7 @@ import { convertDateIntoRightFormat } from '../../app/utils/helpers';
 import PriceTag from '../priceTag/PriceTag';
 
 
-const FlightsTable: FC<FlightsTableProps> = ({ data, destinations, filters }) => {
+const FlightsTable: FC<FlightsTableProps> = ({ data, destinations }) => {
 	const query = useUrlSearchParams();
 	const origin = query.get('origin');
 	const { destination1, destination2, destination3, destination4 } = destinations;

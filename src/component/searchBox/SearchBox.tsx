@@ -164,7 +164,7 @@ const SearchBox: FC<SearchBoxProps> = ({ searchInfo, weekdaysFilter, setWeekdays
 						</Grid>
 					</Grid>
 
-					{showFilters && <MultipleSelectionFilter options={weekdays} value={weekdaysFilter} handleChange={(event) => handleChangeFilter(event, setWeekdaysFilter)} label="Weekdays" />}
+					{showFilters && <MultipleSelectionFilter options={weekdays} value={weekdaysFilter} handleChange={(event) => handleChangeFilter(event, setWeekdaysFilter)} label="Departure Weekday" />}
 					<Grid container xs={12} className={classes.actions}>
 						<Grid item xs={6}>
 							<Link className={classes.textLink} onClick={() => setShowFilters(!showFilters)}>

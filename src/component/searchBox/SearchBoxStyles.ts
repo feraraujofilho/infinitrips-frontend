@@ -2,8 +2,12 @@ import { makeStyles } from '@material-ui/core';
 export default makeStyles({
     cardRoot: {
         margin: "auto",
-        width: "600px",
+        width: "700px",
         padding: "20px",
+        '@media only screen and (max-width: 960px)': {
+            width: "600px",
+            minHeight: "200px",
+        },
         '@media only screen and (max-width: 768px)': {
             width: "280px",
             minHeight: "200px",
@@ -11,7 +15,7 @@ export default makeStyles({
         },
         marginTop: "50px",
         marginBottom: "30px",
-        border: "#4BA0B4 solid",
+        borderRadius: "5px"
     },
     plusButton: {
         display: "flex",
@@ -39,7 +43,8 @@ export default makeStyles({
         textDecoration: "none",
         color: "#4BA0B4",
         '& p': {
-            marginLeft: "10px"
+            marginLeft: "10px",
+            textAlign: "left"
         }
     },
     actions: {
