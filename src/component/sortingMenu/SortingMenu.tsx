@@ -14,22 +14,22 @@ const SortingMenu: FC<SortingMenuProps> = ({ destinations, handleSorting, classN
     const [chosenOption, setChosenOption] = useState("Dates")
     const [anchorEl, setAnchorEl] = React.useState(null);
 
-    const handleClick = (event: any) => {
+    const handleClick = (event: any): void => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = () => {
+    const handleClose = (): void => {
         setAnchorEl(null);
     };
 
-    const handleOption = (index: number, destination: string) => {
+    const handleOption = (index: number, destination: string): void => {
         setChosenOption(`Cheapest - ${destination}`)
         console.log(index)
         setAnchorEl(null);
         handleSorting(index)
     }
 
-    const handleDateOption = (option: string) => {
+    const handleDateOption = (option: string): void => {
         setChosenOption(option)
         setAnchorEl(null);
         handleSorting(option)

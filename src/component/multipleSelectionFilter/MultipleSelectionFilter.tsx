@@ -1,4 +1,4 @@
-import { FormControl, Select, InputLabel, Input, MenuItem, Checkbox, ListItemText, FormControlLabel } from '@material-ui/core';
+import { FormControl, Select, InputLabel, Input, MenuItem, Checkbox, ListItemText } from '@material-ui/core';
 import React, { FC } from "react"
 import useStyles from "./MultipleSelectionFilterStyles"
 

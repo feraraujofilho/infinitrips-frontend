@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, ReactElement, ChangeEvent } from 'react';
+import React, { FC, useState, useEffect, ReactElement } from 'react';
 import { ValidatorForm } from 'react-material-ui-form-validator';
 import { Button, Card, Grid, Link } from '@material-ui/core';
 import DropdownSelectCity from '../dropdownSelectCity/DropdownSelectCity';
@@ -15,7 +15,6 @@ import { weekdays } from '../../app/services/filters';
 import { Row } from '../../app/types/Row';
 
 const SearchBox: FC<SearchBoxProps> = ({ searchInfo, weekdaysFilter, setWeekdaysFilter }) => {
-	const [error, setError] = useState<any[]>();
 	const [formData, setFormData] = useState<any>({
 		origin: '',
 		destination1: '',
@@ -130,7 +129,7 @@ const SearchBox: FC<SearchBoxProps> = ({ searchInfo, weekdaysFilter, setWeekdays
 
 	return (
 		<Card elevation={10} className={classes.cardRoot}>
-			<ValidatorForm onSubmit={handleSubmit} onError={(err) => setError(err)}>
+			<ValidatorForm onSubmit={handleSubmit}>
 				<Grid container>
 					<Grid container className={classes.citiesAndDuration}>
 						<Grid item xs={12} sm={12} md={6} direction="column" className={classes.originAndNights}>
@@ -180,7 +179,7 @@ const SearchBox: FC<SearchBoxProps> = ({ searchInfo, weekdaysFilter, setWeekdays
 					</Grid>
 				</Grid>
 			</ValidatorForm>
-		</Card>
+		</Card >
 	);
 };
 

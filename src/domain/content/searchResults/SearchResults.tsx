@@ -1,14 +1,11 @@
-import React, { FC, useState, useEffect, MouseEvent, useMemo } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import FlightsTable from '../../../component/flightsTable/FlightsTable';
 import { get, isNumber, isString } from 'lodash';
 import SearchBox from '../../../component/searchBox/SearchBox';
-import HeaderNavigation from '../../header/HeaderNavigation';
 import useUrlSearchParams from '../../../app/hooks/useUrlSearchParams';
 import SortingMenu from '../../../component/sortingMenu/SortingMenu';
 import useStyles from "./SearchResultsStyles"
-import Airplane from "../../../images/airplan.png"
-import AnimatedBackground from '../../../template/AnimatedBackground';
 
 
 const SearchResults: FC = () => {
@@ -73,8 +70,10 @@ const SearchResults: FC = () => {
 	return (
 		<div className={classes.root}>
 			<SearchBox searchInfo={{ origin: origin, nights, ...destinationsObject }} weekdaysFilter={weekdaysFilter} setWeekdaysFilter={setWeekdaysFilter} />
-			<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} />
-			<FlightsTable data={dynamicTableData} destinations={destinationsObject} />
+			<div>
+				<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} />
+				<FlightsTable data={dynamicTableData} destinations={destinationsObject} />
+			</div>
 		</div>
 	);
 };

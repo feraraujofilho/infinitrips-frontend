@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import SearchBox from '../../../component/searchBox/SearchBox';
 import { Typography } from '@material-ui/core';
 import useStyles from './HomeContentStyles';
-import HeaderNavigation from '../../header/HeaderNavigation';
 
 
 const HomeContent: FC = () => {

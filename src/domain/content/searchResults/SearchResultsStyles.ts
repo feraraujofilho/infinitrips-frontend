@@ -7,7 +7,6 @@ export default makeStyles({
         backgroundColor: "rgb(245, 247, 249)"
     },
     sortingMenu: {
-        width: "800px",
         '@media only screen and (max-width: 768px)': {
             width: "90%"
         },
