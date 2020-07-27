@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import useStyles from './HeaderNavigationStyles';
+import logo from "../../images/Logo_oficial_azul.png"
+
 
 const HeaderNavigation: FC = () => {
 	const classes = useStyles();
@@ -9,9 +11,9 @@ const HeaderNavigation: FC = () => {
 	return (
 		<div>
 			<AppBar position="static" className={classes.root}>
-				<Toolbar>
-					<Link to="/" className={classes.link}>
-						<Typography variant="h6">Home</Typography>
+				<Toolbar className={classes.toolbar}>
+					<Link to="/" >
+						<img className={classes.img} src={logo} />
 					</Link>
 				</Toolbar>
 			</AppBar>

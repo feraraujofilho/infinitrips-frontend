@@ -3,7 +3,8 @@ export default makeStyles({
     root: {
         display: "flex",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "rgb(245, 247, 249)"
     },
     sortingMenu: {
         width: "800px",

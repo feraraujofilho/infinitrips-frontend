@@ -7,6 +7,8 @@ import HeaderNavigation from '../../header/HeaderNavigation';
 import useUrlSearchParams from '../../../app/hooks/useUrlSearchParams';
 import SortingMenu from '../../../component/sortingMenu/SortingMenu';
 import useStyles from "./SearchResultsStyles"
+import Airplane from "../../../images/airplan.png"
+import AnimatedBackground from '../../../template/AnimatedBackground';
 
 
 const SearchResults: FC = () => {
@@ -69,13 +71,10 @@ const SearchResults: FC = () => {
 
 
 	return (
-		<div >
-			<HeaderNavigation />
-			<div className={classes.root}>
-				<SearchBox searchInfo={{ origin: origin, nights, ...destinationsObject }} weekdaysFilter={weekdaysFilter} setWeekdaysFilter={setWeekdaysFilter} />
-				<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} />
-				<FlightsTable data={dynamicTableData} destinations={destinationsObject} />
-			</div>
+		<div className={classes.root}>
+			<SearchBox searchInfo={{ origin: origin, nights, ...destinationsObject }} weekdaysFilter={weekdaysFilter} setWeekdaysFilter={setWeekdaysFilter} />
+			<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} />
+			<FlightsTable data={dynamicTableData} destinations={destinationsObject} />
 		</div>
 	);
 };

@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core';
-import backgroundImage from "../../../images/Mallorca.jpg"
+import backgroundImage from "../../../images/background_homepage.png"
 
 
 export default makeStyles({
@@ -7,7 +7,7 @@ export default makeStyles({
         minHeight: "100vh",
     },
     content: {
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 64px)",
         backgroundImage: `URL(${backgroundImage})`,
         backgroundPosition: 'center center',
         backgroundSize: 'cover',
@@ -15,7 +15,7 @@ export default makeStyles({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "space-around"
+        justifyContent: "center"
     },
     header: {
         display: "flex",
@@ -32,5 +32,8 @@ export default makeStyles({
     logo: {
         width: "200px",
         marginTop: "20px"
-    }
+    },
+    text: {
+        textShadow: "rgba(0, 0, 0, 0.25) 0px 4px 10px"
+    },
 })
