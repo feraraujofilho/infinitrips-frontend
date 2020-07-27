@@ -6,10 +6,18 @@ export const addClasses = (element: any, classes: string[]): any => {
     return newElement
 }
 
+const convertIntoRightLength = (date: string): string => {
+    let dateArray = date.split("-")
+    if (dateArray[2].length === 1) {
+        dateArray[2] = `0${dateArray[2]}`
+    }
+    return dateArray.join("-")
+}
+
 export const convertDateIntoRightFormat = (departureDate: string, returnDate: string): string => {
     const departureArray = departureDate.split(" - ")
     const returnArray = returnDate.split(" - ")
-    let arrayOfDates = [departureArray[1], returnArray[1]]
+    let arrayOfDates = [convertIntoRightLength(departureArray[1]), convertIntoRightLength(returnArray[1])]
 
     let newArray = arrayOfDates.map((val: any) => {
         return val.split("-").join("").slice(2)

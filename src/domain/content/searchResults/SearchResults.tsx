@@ -66,6 +66,8 @@ const SearchResults: FC = () => {
 		setRerender(!rerender)
 	}
 
+	console.log("DATA", dynamicTableData);
+
 
 	return (
 		<div className={classes.root}>
