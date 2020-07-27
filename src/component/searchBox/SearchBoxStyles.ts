@@ -45,6 +45,9 @@ export default makeStyles({
         '& p': {
             marginLeft: "10px",
             textAlign: "left"
+        },
+        '&:hover': {
+            cursor: "pointer"
         }
     },
     actions: {

@@ -25,6 +25,7 @@ export default makeStyles({
         textAlign: "center",
     },
     pageHeadings: {
+        marginTop: "20px",
         maxWidth: "80%",
         textAlign: "center",
         color: "white"
