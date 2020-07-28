@@ -6,6 +6,7 @@ import SearchBox from '../../../component/searchBox/SearchBox';
 import useUrlSearchParams from '../../../app/hooks/useUrlSearchParams';
 import SortingMenu from '../../../component/sortingMenu/SortingMenu';
 import useStyles from "./SearchResultsStyles"
+import ExplanationColors from '../../../component/explanationColors/ExplanationColors';
 
 
 const SearchResults: FC = () => {
@@ -66,14 +67,15 @@ const SearchResults: FC = () => {
 		setRerender(!rerender)
 	}
 
-	console.log("DATA", dynamicTableData);
-
 
 	return (
 		<div className={classes.root}>
 			<SearchBox searchInfo={{ origin: origin, nights, ...destinationsObject }} weekdaysFilter={weekdaysFilter} setWeekdaysFilter={setWeekdaysFilter} />
 			<div>
-				<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} />
+				<div className={classes.sortingAndExplanation}>
+					<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} />
+					<ExplanationColors />
+				</div>
 				<FlightsTable data={dynamicTableData} destinations={destinationsObject} />
 			</div>
 		</div>
