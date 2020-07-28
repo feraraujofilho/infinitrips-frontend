@@ -7,6 +7,8 @@ import useUrlSearchParams from '../../../app/hooks/useUrlSearchParams';
 import SortingMenu from '../../../component/sortingMenu/SortingMenu';
 import useStyles from "./SearchResultsStyles"
 import ExplanationColors from '../../../component/explanationColors/ExplanationColors';
+import axios from 'axios';
+import { Row } from '../../../app/types/Row';
 
 
 const SearchResults: FC = () => {
@@ -44,10 +46,37 @@ const SearchResults: FC = () => {
 		}
 	}, [filters])
 
+	console.log(tableData)
+
 
 	useEffect(() => {
 		if (tableData) {
 			setDynamicTableData(tableData)
+		}
+		else {
+			axios
+				.post(`${process.env.REACT_APP_BACKEND_URL}/flights`, {
+					origin: origin,
+					destination1: destination1,
+					destination2: destination2,
+					destination3: destination3,
+					destination4: destination4,
+					nights: nights
+				})
+				.then((response) => {
+					let dataForFrontend = response.data
+					if (weekdaysFilter.length > 0) {
+						const dataFilteredByWeekDays = dataForFrontend.filter((val: Row) => {
+							let valueArray = val.departuredate.split(" - ")
+							if (weekdaysFilter.indexOf(valueArray[0]) > -1) {
+								return val
+							}
+						})
+						dataForFrontend = dataFilteredByWeekDays
+					}
+					setDynamicTableData(dataForFrontend)
+				})
+				.catch((err) => console.log(err));
 		}
 	}, [tableData])
 
