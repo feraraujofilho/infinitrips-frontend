@@ -14,7 +14,7 @@ import MultipleSelectionFilter from '../multipleSelectionFilter/MultipleSelectio
 import { weekdays } from '../../app/services/filters';
 import { Row } from '../../app/types/Row';
 
-const SearchBox: FC<SearchBoxProps> = ({ searchInfo, weekdaysFilter, setWeekdaysFilter }) => {
+const SearchBox: FC<SearchBoxProps> = ({ searchInfo, weekdaysFilter, setWeekdaysFilter, setResetSorting }) => {
 	const [formData, setFormData] = useState<any>({
 		origin: '',
 		destination1: '',
@@ -101,6 +101,10 @@ const SearchBox: FC<SearchBoxProps> = ({ searchInfo, weekdaysFilter, setWeekdays
 						state: { data: dataForFrontend, filters: weekdaysFilter }
 					});
 				}
+				if (setResetSorting) {
+					setResetSorting(true)
+				}
+
 			})
 			.catch((err) => console.log(err));
 	};

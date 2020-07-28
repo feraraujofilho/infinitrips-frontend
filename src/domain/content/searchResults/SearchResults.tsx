@@ -15,6 +15,7 @@ const SearchResults: FC = () => {
 	const [weekdaysFilter, setWeekdaysFilter] = useState<string[]>([])
 	const [dynamicTableData, setDynamicTableData] = useState([])
 	const [rerender, setRerender] = useState(false)
+	const [resetSorting, setResetSorting] = useState(false)
 
 	const classes = useStyles()
 
@@ -99,10 +100,10 @@ const SearchResults: FC = () => {
 
 	return (
 		<div className={classes.root}>
-			<SearchBox searchInfo={{ origin: origin, nights, ...destinationsObject }} weekdaysFilter={weekdaysFilter} setWeekdaysFilter={setWeekdaysFilter} />
+			<SearchBox searchInfo={{ origin: origin, nights, ...destinationsObject }} weekdaysFilter={weekdaysFilter} setWeekdaysFilter={setWeekdaysFilter} setResetSorting={setResetSorting} />
 			<div>
 				<div className={classes.sortingAndExplanation}>
-					<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} />
+					<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} resetSorting={resetSorting} setResetSorting={setResetSorting} />
 					<ExplanationColors />
 				</div>
 				<FlightsTable data={dynamicTableData} destinations={destinationsObject} />
