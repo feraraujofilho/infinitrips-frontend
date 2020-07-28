@@ -83,7 +83,11 @@ const SearchResults: FC = () => {
 
 	const handleSorting = (element: number | string) => {
 		if (isNumber(element)) {
-			let sortedData = tableData.sort((a: any, b: any) => a[element] - b[element])
+			let sortedData = tableData.sort((a: any, b: any) => {
+				if (a[element] && b[element]) {
+					return a[element] - b[element]
+				}
+			})
 			setDynamicTableData(sortedData)
 		}
 		if (isString(element)) {

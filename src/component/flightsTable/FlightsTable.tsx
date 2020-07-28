@@ -35,6 +35,10 @@ const FlightsTable: FC<FlightsTableProps> = ({ data, destinations }) => {
 			if (el[i]) {
 				cells.push(<td><PriceTag key={i} columnValuesArray={data.map(el => el[i])} el={el[i]} originAbb={originAbb} destinationAbb={getAbbFromName(destinationNamesArray[i], citiesAbb)} date={date} /></td>)
 			}
+			else {
+				cells.push(<td></td>)
+			}
+
 		}
 		return cells
 	}
