@@ -12,7 +12,7 @@ const HomeContent: FC = () => {
 		<div className={classes.content}>
 			<div className={classes.pageHeadings}>
 				<Typography className={classes.text} variant="h3" component="h1">
-					Compare Your Next Destinations
+					Compare Flight Itineraries for Your Next Holiday
 				</Typography>
 				<Typography className={classes.text}>
 					Compare side by side a roundtrip to up to 4 destinations for all possible dates in the next 6 months
