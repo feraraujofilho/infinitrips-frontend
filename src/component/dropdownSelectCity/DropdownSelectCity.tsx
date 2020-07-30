@@ -11,7 +11,7 @@ const DropdownSelectCity: FC<DropdownSelectCityProps> = ({ label, handleInputCha
 
 	const { data } = useQuery(citiesQueries.Cities);
 
-	const originOptions = () => [<MenuItem value={'Berlin (alle)'} key={'Berlin (alle)'}> Berlin (alle) </MenuItem>,
+	const originOptions = [<MenuItem value={'Berlin (alle)'} key={'Berlin (alle)'}> Berlin (alle) </MenuItem>,
 	<MenuItem value={'London (alle)'} key={'London (alle)'}> London (alle) </MenuItem>]
 
 	return (
@@ -30,7 +30,7 @@ const DropdownSelectCity: FC<DropdownSelectCityProps> = ({ label, handleInputCha
 				<em>None</em>
 			</MenuItem>
 			{name === 'origin' ? (
-				originOptions()
+				originOptions
 			) : (
 					data &&
 					data.cities.map((city: City) => {
