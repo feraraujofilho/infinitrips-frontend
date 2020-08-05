@@ -5,16 +5,23 @@ import { TextField, MenuItem } from '@material-ui/core';
 import { City } from './interfaces/City';
 import DropdownSelectCityProps from './DropdownSelectCityProps';
 import useStyles from './DropdownSelectCityStyles';
+import LoadingSpinner from '../loadingSpinner/loadingSpinner';
 
 const DropdownSelectCity: FC<DropdownSelectCityProps> = ({ label, handleInputChange, name, value }) => {
 	const classes = useStyles();
 
-	const { data } = useQuery(citiesQueries.Cities);
+	const { data, loading } = useQuery(citiesQueries.Cities);
+
+	// const destinationCities = ["London (alle)","Mailand (alle)", "Barcelona (BCN)", "Madrid (MAD)","Rom (alle)", "Porto (OPO)", "Dublin (DUB)",  "Berlin (alle)", "Palma de Mallorca (PMI)", "Edinburgh (EDI)", "Ibiza (IBZ)", "Venedig (alle)", "Nizza (NCE)"]
 
 	const originOptions = [<MenuItem value={'Berlin (alle)'} key={'Berlin (alle)'}> Berlin (alle) </MenuItem>,
 	<MenuItem value={'London (alle)'} key={'London (alle)'}> London (alle) </MenuItem>]
 
+	console.log(loading);
+	
+
 	return (
+		
 		<TextField
 			variant="outlined"
 			className={classes.root}
@@ -29,6 +36,7 @@ const DropdownSelectCity: FC<DropdownSelectCityProps> = ({ label, handleInputCha
 			<MenuItem value="">
 				<em>None</em>
 			</MenuItem>
+			<LoadingSpinner loading={loading}>
 			{name === 'origin' ? (
 				originOptions
 			) : (
@@ -41,6 +49,7 @@ const DropdownSelectCity: FC<DropdownSelectCityProps> = ({ label, handleInputCha
 						);
 					})
 				)}
+				</LoadingSpinner>
 		</TextField>
 	);
 };
