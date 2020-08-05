@@ -5,7 +5,7 @@ import { TextField, MenuItem } from '@material-ui/core';
 import { City } from './interfaces/City';
 import DropdownSelectCityProps from './DropdownSelectCityProps';
 import useStyles from './DropdownSelectCityStyles';
-import LoadingSpinner from '../loadingSpinner/LoadingSpinner';
+import LoadingSpinner from "../loadingSpinner/loadingSpinner"
 
 const DropdownSelectCity: FC<DropdownSelectCityProps> = ({ label, handleInputChange, name, value }) => {
 	const classes = useStyles();
