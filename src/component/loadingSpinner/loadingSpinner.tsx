@@ -9,25 +9,18 @@ const override = css`
   border-color: red;
 `;
 
-interface LoadingSpinnerProps {
-    loading: boolean
-}
+const LoadingSpinner: FC = () => {
+    return (
+        <div className="sweet-loading">
+            <PulseLoader
+                css={override}
+                size={10}
+                color={"#4BA0B4"}
+                loading={true}
+            />
+        </div>
+    );
 
-const LoadingSpinner: FC<LoadingSpinnerProps> = ({ loading }) => {
-    if (loading) {
-        return (
-            <div className="sweet-loading">
-                <PulseLoader
-                    css={override}
-                    size={10}
-                    color={"#4BA0B4"}
-                    loading={loading}
-                />
-            </div>
-        );
-
-    }
-    return null
 }
 
 export default LoadingSpinner;

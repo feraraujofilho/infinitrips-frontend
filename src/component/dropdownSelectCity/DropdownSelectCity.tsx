@@ -48,7 +48,7 @@ const DropdownSelectCity: FC<DropdownSelectCityProps> = ({ label, handleInputCha
 			<MenuItem value="">
 				<em>None</em>
 			</MenuItem>
-			{loading ? <LoadingSpinner loading={true} /> : renderMenuItems()}
+			{loading ? <LoadingSpinner /> : renderMenuItems()}
 		</TextField>
 	);
 };
