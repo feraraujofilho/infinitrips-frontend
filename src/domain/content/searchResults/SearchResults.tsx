@@ -47,8 +47,6 @@ const SearchResults: FC = () => {
 		}
 	}, [filters])
 
-	console.log(tableData)
-
 
 	useEffect(() => {
 		if (tableData) {

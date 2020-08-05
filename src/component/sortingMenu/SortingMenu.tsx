@@ -25,7 +25,6 @@ const SortingMenu: FC<SortingMenuProps> = ({ destinations, handleSorting, classN
 
     const handleOption = (index: number, destination: string): void => {
         setChosenOption(`Cheapest - ${destination}`)
-        console.log(index)
         setAnchorEl(null);
         handleSorting(index)
         setResetSorting(false)
