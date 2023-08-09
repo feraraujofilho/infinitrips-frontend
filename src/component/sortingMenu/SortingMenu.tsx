@@ -1,19 +1,18 @@
-import React, { FC, useState, useEffect } from "react"
+import React, { FC, useState } from "react"
 import { Button, Menu, MenuItem } from "@material-ui/core";
 import SortIcon from '@material-ui/icons/Sort';
 import { DestinationsConfig } from "../flightsTable/interfaces/DestinationsConfig";
-import SortingMenuProps from "./SortingMenuProps";
+
+interface SortingMenuProps {
+    destinations: DestinationsConfig,
+    handleSorting: (element: number | string) => void,
+    className?: string
+}
 
 
-const SortingMenu: FC<SortingMenuProps> = ({ destinations, handleSorting, className, resetSorting, setResetSorting }) => {
+const SortingMenu: FC<SortingMenuProps> = ({ destinations, handleSorting, className }) => {
     const [chosenOption, setChosenOption] = useState("Dates")
     const [anchorEl, setAnchorEl] = React.useState(null);
-
-    useEffect(() => {
-        if (resetSorting) {
-            setChosenOption("Dates")
-        }
-    }, [resetSorting])
 
     const handleClick = (event: any): void => {
         setAnchorEl(event.currentTarget);
@@ -25,9 +24,9 @@ const SortingMenu: FC<SortingMenuProps> = ({ destinations, handleSorting, classN
 
     const handleOption = (index: number, destination: string): void => {
         setChosenOption(`Cheapest - ${destination}`)
+        console.log(index)
         setAnchorEl(null);
         handleSorting(index)
-        setResetSorting(false)
     }
 
     const handleDateOption = (option: string): void => {

@@ -5,5 +5,4 @@ export interface SearchBoxProps {
     searchInfo?: SearchInfo,
     weekdaysFilter: string[]
     setWeekdaysFilter?: Dispatch<SetStateAction<string[]>>
-    setResetSorting?: Dispatch<SetStateAction<boolean>>
 }

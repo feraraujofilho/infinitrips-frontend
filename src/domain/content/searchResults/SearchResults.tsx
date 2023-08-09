@@ -7,15 +7,12 @@ import useUrlSearchParams from '../../../app/hooks/useUrlSearchParams';
 import SortingMenu from '../../../component/sortingMenu/SortingMenu';
 import useStyles from "./SearchResultsStyles"
 import ExplanationColors from '../../../component/explanationColors/ExplanationColors';
-import axios from 'axios';
-import { Row } from '../../../app/types/Row';
 
 
 const SearchResults: FC = () => {
 	const [weekdaysFilter, setWeekdaysFilter] = useState<string[]>([])
 	const [dynamicTableData, setDynamicTableData] = useState([])
 	const [rerender, setRerender] = useState(false)
-	const [resetSorting, setResetSorting] = useState(false)
 
 	const classes = useStyles()
 
@@ -52,40 +49,11 @@ const SearchResults: FC = () => {
 		if (tableData) {
 			setDynamicTableData(tableData)
 		}
-		else {
-			axios
-				.post(`${process.env.REACT_APP_BACKEND_URL}/flights`, {
-					origin: origin,
-					destination1: destination1,
-					destination2: destination2,
-					destination3: destination3,
-					destination4: destination4,
-					nights: nights
-				})
-				.then((response) => {
-					let dataForFrontend = response.data
-					if (weekdaysFilter.length > 0) {
-						const dataFilteredByWeekDays = dataForFrontend.filter((val: Row) => {
-							let valueArray = val.departuredate.split(" - ")
-							if (weekdaysFilter.indexOf(valueArray[0]) > -1) {
-								return val
-							}
-						})
-						dataForFrontend = dataFilteredByWeekDays
-					}
-					setDynamicTableData(dataForFrontend)
-				})
-				.catch((err) => console.log(err));
-		}
 	}, [tableData])
 
 	const handleSorting = (element: number | string) => {
 		if (isNumber(element)) {
-			let sortedData = tableData.sort((a: any, b: any) => {
-				if (a[element] && b[element]) {
-					return a[element] - b[element]
-				}
-			})
+			let sortedData = tableData.sort((a: any, b: any) => a[element] - b[element])
 			setDynamicTableData(sortedData)
 		}
 		if (isString(element)) {
@@ -102,10 +70,10 @@ const SearchResults: FC = () => {
 
 	return (
 		<div className={classes.root}>
-			<SearchBox searchInfo={{ origin: origin, nights, ...destinationsObject }} weekdaysFilter={weekdaysFilter} setWeekdaysFilter={setWeekdaysFilter} setResetSorting={setResetSorting} />
+			<SearchBox searchInfo={{ origin: origin, nights, ...destinationsObject }} weekdaysFilter={weekdaysFilter} setWeekdaysFilter={setWeekdaysFilter} />
 			<div>
 				<div className={classes.sortingAndExplanation}>
-					<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} resetSorting={resetSorting} setResetSorting={setResetSorting} />
+					<SortingMenu className={classes.sortingMenu} destinations={destinationsObject} handleSorting={handleSorting} />
 					<ExplanationColors />
 				</div>
 				<FlightsTable data={dynamicTableData} destinations={destinationsObject} />

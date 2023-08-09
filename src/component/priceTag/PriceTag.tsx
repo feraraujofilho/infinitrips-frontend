@@ -16,7 +16,7 @@ const PriceTag: FC<PriceTagProps> = ({ columnValuesArray, el, originAbb, destina
 
 
     const filteredArray = columnValuesArray.filter((price: any) => price);
-    const fareLink = `https://www.skyscanner.de/transport/flights/${originAbb}/${destinationAbb}/${date}/?adults=1&children=0&adultsv2=1&childrenv2=&infants=0&cabinclass=economy&rtn=0&preferdirects=false&outboundaltsenabled=false&inboundaltsenabled=false&ref=home&preferflexible=false`;
+    const fareLink = `https://www.skyscanner.de/transport/flights/${originAbb}/${destinationAbb}/${date}`;
 
     // let average = filteredArray.reduce((acc: number, value: number) => acc + value, 0) / filteredArray.length;
     let max = Math.max(...filteredArray);
